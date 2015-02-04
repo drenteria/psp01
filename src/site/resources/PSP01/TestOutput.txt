@@ -1,0 +1,13 @@
+Test from JUnit
+
+File: LOCCountTest.txt
+Total Lines: 12
+Effective Lines: 6
+Methods: 0
+public static void main(String[] args) { is a method declaration
+public HelloWorld(){ is a method declaration
+public String printAnotherHello(){ is a method declaration
+File: Test.java
+Total Lines: 21
+Effective Lines: 11
+Methods: 3
