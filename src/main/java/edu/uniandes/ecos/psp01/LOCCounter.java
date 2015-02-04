@@ -4,6 +4,8 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * This class is responsible to count the lines of code
@@ -29,6 +31,11 @@ public class LOCCounter {
 	private int efffectiveLines;
 	
 	/**
+	 * Counts the number of methods
+	 */
+	private int methods;
+	
+	/**
 	 * Define the string to recognize a One-Line comment
 	 */
 	private static final String LINE_COMMENT = "//";
@@ -50,6 +57,7 @@ public class LOCCounter {
 		sourceFile = null;
 		totalLines = 0;
 		efffectiveLines = 0;
+		methods = 0;
 	}
 	
 	/**
@@ -62,8 +70,6 @@ public class LOCCounter {
 		sourceFile = new File(filePath);
 		return (sourceFile.exists() && sourceFile.isFile());
 	}
-	
-	
 	
 	/**
 	 * Method that reads the number of LOC from a defined file
@@ -103,6 +109,7 @@ public class LOCCounter {
 					continue;
 				}
 				efffectiveLines++;
+				verifyMethod(currentLine);
 			}
 		}
 		buffer.close();
@@ -110,6 +117,20 @@ public class LOCCounter {
 		System.out.println("File: " + sourceFile.getName());
 		System.out.println("Total Lines: " + totalLines);
 		System.out.println("Effective Lines: " + efffectiveLines);
+		System.out.println("Methods: " + methods);
+	}
+	
+	/**
+	 * Evaluates if a line belongs to a method declaration
+	 * @param currentLine
+	 */
+	private void verifyMethod(String currentLine){
+		String regexMethodPattern = "^(public|private|protected)\\s[\\w\\<\\>\\s]+\\({1}";
+		Pattern pattern = Pattern.compile(regexMethodPattern);
+		Matcher matcher = pattern.matcher(currentLine);
+		if(matcher.find()){
+			methods++;
+		}
 	}
 	
 	/**
@@ -136,6 +157,14 @@ public class LOCCounter {
 	 */
 	public String getSourceFileName(){
 		return this.sourceFile.getName();
+	}
+	
+	/**
+	 * Retrieves the number of methods counted by the program
+	 * @return The number of methods in source file
+	 */
+	public int getMethodsNumber(){
+		return this.methods;
 	}
 
 }

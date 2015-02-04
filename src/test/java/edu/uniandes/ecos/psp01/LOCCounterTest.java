@@ -28,6 +28,11 @@ public class LOCCounterTest extends TestCase {
     	return classLoader.getResource("LOCCountTest.txt").getFile();
     }
     
+    private String getJavaFilePath(){
+    	ClassLoader classLoader = this.getClass().getClassLoader();
+    	return classLoader.getResource("Test.java").getFile();
+    }
+    
     /**
      * Test the initialization for file
      */
@@ -44,6 +49,15 @@ public class LOCCounterTest extends TestCase {
 			theCounter.countLines(getTestFilePath());
 			assertEquals(12, theCounter.getTotalLines());
 			assertEquals(6, theCounter.getEfffectiveLines());
+		} catch (IOException e) {
+			e.printStackTrace();
+			fail();
+		}
+    }
+    
+    public void testCountSourceFiles(){
+    	try {
+			theCounter.countLines(getJavaFilePath());
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail();
