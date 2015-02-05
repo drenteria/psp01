@@ -11,3 +11,39 @@ File: Test.java
 Total Lines: 21
 Effective Lines: 11
 Methods: 3
+
+
+Test from Console 
+
+File: App.java
+Total Lines: 97
+Effective Lines: 73
+Methods: 3
+File: FileInput.java
+Total Lines: 82
+Effective Lines: 54
+Methods: 4
+File: StatisticCalculator.java
+Total Lines: 67
+Effective Lines: 32
+Methods: 4
+File: App.java
+Total Lines: 49
+Effective Lines: 38
+Methods: 3
+File: ConsoleOutput.java
+Total Lines: 15
+Effective Lines: 9
+Methods: 1
+File: LOCCounter.java
+Total Lines: 170
+Effective Lines: 84
+Methods: 8
+File: ProgramLOCCounter.java
+Total Lines: 143
+Effective Lines: 80
+Methods: 10
+File: WebOutput.java
+Total Lines: 48
+Effective Lines: 40
+Methods: 2
