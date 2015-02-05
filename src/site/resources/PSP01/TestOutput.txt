@@ -15,6 +15,7 @@ Methods: 3
 
 Test from Console 
 
+Project 1
 File: App.java
 Total Lines: 97
 Effective Lines: 73
@@ -27,6 +28,11 @@ File: StatisticCalculator.java
 Total Lines: 67
 Effective Lines: 32
 Methods: 4
+Project Summary:
+Total Lines: 246
+Effective Lines: 159
+
+Project 2
 File: App.java
 Total Lines: 49
 Effective Lines: 38
@@ -47,3 +53,6 @@ File: WebOutput.java
 Total Lines: 48
 Effective Lines: 40
 Methods: 2
+Project Summary:
+Total Lines: 425
+Effective Lines: 251
