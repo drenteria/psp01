@@ -2,6 +2,7 @@ package edu.uniandes.ecos.psp01;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.ListIterator;
 
 import javax.servlet.http.HttpServletRequest;
@@ -21,26 +22,33 @@ public class WebOutput {
 	}
 	
 	public static void showLOCCountResult(HttpServletRequest request, HttpServletResponse response,
-			ProgramLOCCounter counter) 
+			ArrayList<ProgramLOCCounter> counterList) 
 			throws IOException{
 		PrintWriter pw = response.getWriter();
 		pw.write("<html>");
 		pw.write("<body>");
         pw.println("<h1>PSP01 Lines Of Code Count Program!</h1>");
         
-        pw.println("<b>Project Folder:</b>" + counter.getWorkingDirectoryPath() + " <br/>");
-        pw.println("<b>Total Lines:</b>" + counter.getProjectTotalLines() + " <br/>");
-        pw.println("<b>Effective Lines:</b>" + counter.getProjectEffectiveLines() + " <br/>");
-        pw.write("</br></br>");
-        
-        ListIterator<LOCCounter> projectCounters = counter.getCountersList().listIterator();
-        while(projectCounters.hasNext()){
-        	LOCCounter currentCounter = projectCounters.next();
-        	pw.println("<b>File:</b>" + currentCounter.getSourceFileName() + " <br/>");
-        	pw.println("<b>Total Lines:</b>" + currentCounter.getTotalLines() + " <br/>");
-        	pw.println("<b>Effective Lines:</b>" + currentCounter.getEfffectiveLines() + " <br/>");
-        	pw.println("<b>Methods:</b>" + currentCounter.getMethodsNumber() + " <br/>");
+        ListIterator<ProgramLOCCounter> iterator = counterList.listIterator();
+        while(iterator.hasNext()){
+        	ProgramLOCCounter counter = iterator.next();
+        	pw.println("<b>Project Name:</b> " + counter.getProjectName() + " <br/>");
+            pw.println("<b>Total Lines:</b> " + counter.getProjectTotalLines() + " <br/>");
+            pw.println("<b>Effective Lines:</b> " + counter.getProjectEffectiveLines() + " <br/>");
+            pw.write("</br>");
+            
+            ListIterator<LOCCounter> projectCounters = counter.getCountersList().listIterator();
+            while(projectCounters.hasNext()){
+            	LOCCounter currentCounter = projectCounters.next();
+            	pw.println("<b>File:</b> " + currentCounter.getSourceFileName() + " <br/>");
+            	pw.println("<b>Total Lines:</b> " + currentCounter.getTotalLines() + " <br/>");
+            	pw.println("<b>Effective Lines:</b> " + currentCounter.getEfffectiveLines() + " <br/>");
+            	pw.println("<b>Method Count:</b> " + currentCounter.getMethodCount() + " <br/>");
+            	pw.println("<b>Method Names:</b> " + currentCounter.getMethodNamesSummary().replace("\n", "<br/>") + " <br/>");
+            }
         }
+        
+        
         pw.write("</body>");
         pw.write("</html>");
 	}

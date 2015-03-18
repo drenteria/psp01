@@ -55,9 +55,15 @@ public class LOCCounterTest extends TestCase {
 		}
     }
     
+    /**
+     * Test Java source files counting functions
+     */
     public void testCountSourceFiles(){
     	try {
 			theCounter.countLines(getJavaFilePath());
+			assertEquals(21, theCounter.getTotalLines());
+			assertEquals(11, theCounter.getEfffectiveLines());
+			assertEquals(3, theCounter.getMethodNames().size());
 		} catch (IOException e) {
 			e.printStackTrace();
 			fail();

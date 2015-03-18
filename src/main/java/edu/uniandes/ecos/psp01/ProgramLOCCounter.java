@@ -22,10 +22,16 @@ public class ProgramLOCCounter {
 	
 	private int effectiveLines;
 	
+	private String projectName;
+	
 	private ArrayList<File> filesToCount;
 	
 	private ArrayList<LOCCounter> countersList;
-	 
+	
+	public ProgramLOCCounter(String projectName){
+		this();
+		this.projectName = projectName;
+	}
 	
 	public ProgramLOCCounter(){
 		workingDirectory = null;
@@ -33,6 +39,7 @@ public class ProgramLOCCounter {
 		countersList = new ArrayList<LOCCounter>();
 		totalLines = 0;
 		effectiveLines = 0;
+		projectName = "Undefined";
 	}
 	
 	/**
@@ -139,5 +146,13 @@ public class ProgramLOCCounter {
 	public String getWorkingDirectoryPath(){
 		return this.workingDirectory.getAbsolutePath();
 	}
-
+	
+	/**
+	 * Retrieves the name of the current Project
+	 * @return
+	 */
+	public String getProjectName(){
+		return this.projectName;
+	}
+	
 }

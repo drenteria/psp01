@@ -1,6 +1,7 @@
 package edu.uniandes.ecos.psp01;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -39,10 +40,17 @@ public class App extends HttpServlet
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp)
             throws ServletException, IOException {
 		
-		ProgramLOCCounter projectCounter = new ProgramLOCCounter();
-		projectCounter.sendToLOCCounter("src/main/resources/P1");
+		ArrayList<ProgramLOCCounter> countersList = new ArrayList<ProgramLOCCounter>();
 		
-		WebOutput.showLOCCountResult(req, resp, projectCounter);
+		ProgramLOCCounter projectPSP0Counter = new ProgramLOCCounter();
+		projectPSP0Counter.sendToLOCCounter("src/main/resources/P1");
+		countersList.add(projectPSP0Counter);
+		
+		ProgramLOCCounter projectPSP01Counter = new ProgramLOCCounter();
+		projectPSP01Counter.sendToLOCCounter("src/main/resources/P2");
+		countersList.add(projectPSP01Counter);
+		
+		WebOutput.showLOCCountResult(req, resp, countersList);
 		
 	}
 	

@@ -7,7 +7,7 @@
 public class HelloWorld {
 
     public static void main(String[] args) {
-        HelloWorld = new HelloWorld();
+        HelloWorld hello = new HelloWorld();
     }
     
     public HelloWorld(){

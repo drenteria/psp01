@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -36,6 +37,11 @@ public class LOCCounter {
 	private int methods;
 	
 	/**
+	 * Stores the method names of the current file
+	 */
+	private ArrayList<String> methodNames;
+	
+	/**
 	 * Define the string to recognize a One-Line comment
 	 */
 	private static final String LINE_COMMENT = "//";
@@ -58,6 +64,7 @@ public class LOCCounter {
 		totalLines = 0;
 		efffectiveLines = 0;
 		methods = 0;
+		methodNames = new ArrayList<String>();
 	}
 	
 	/**
@@ -114,10 +121,6 @@ public class LOCCounter {
 		}
 		buffer.close();
 		fileReader.close();
-		System.out.println("File: " + sourceFile.getName());
-		System.out.println("Total Lines: " + totalLines);
-		System.out.println("Effective Lines: " + efffectiveLines);
-		System.out.println("Methods: " + methods);
 	}
 	
 	/**
@@ -130,6 +133,8 @@ public class LOCCounter {
 		Matcher matcher = pattern.matcher(currentLine);
 		if(matcher.find()){
 			methods++;
+			methodNames.add(currentLine.substring(0, 
+					currentLine.indexOf("(")));
 		}
 	}
 	
@@ -163,8 +168,28 @@ public class LOCCounter {
 	 * Retrieves the number of methods counted by the program
 	 * @return The number of methods in source file
 	 */
-	public int getMethodsNumber(){
+	public int getMethodCount(){
 		return this.methods;
+	}
+	
+	/**
+	 * Retrieves the names of the methods of the current file
+	 * @return A single <code>String</code> with the names of the retrieved methods
+	 */
+	public String getMethodNamesSummary(){
+		StringBuffer methodNameBuffer = new StringBuffer();
+		for(String currentMethod : this.methodNames){
+			methodNameBuffer.append(currentMethod + "\n");
+		}
+		return methodNameBuffer.toString();
+	}
+	
+	/**
+	 * Retrieves the list of methods for current counter
+	 * @return An <code>ArrayList</code> with the method names
+	 */
+	public ArrayList<String> getMethodNames(){
+		return this.methodNames;
 	}
 
 }
