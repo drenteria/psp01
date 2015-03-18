@@ -44,7 +44,7 @@ public class WebOutput {
             	pw.println("<b>Total Lines:</b> " + currentCounter.getTotalLines() + " <br/>");
             	pw.println("<b>Effective Lines:</b> " + currentCounter.getEfffectiveLines() + " <br/>");
             	pw.println("<b>Method Count:</b> " + currentCounter.getMethodCount() + " <br/>");
-            	pw.println("<b>Method Names:</b> " + currentCounter.getMethodNamesSummary().replace("\n", "<br/>") + " <br/>");
+            	pw.println("<b>Method Names:</b><br/>" + currentCounter.getMethodNamesSummary().replace("\n", "<br/>") + " <br/>");
             }
         }
         
