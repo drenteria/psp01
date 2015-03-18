@@ -1,58 +1,89 @@
-Test from JUnit
-
-File: LOCCountTest.txt
-Total Lines: 12
-Effective Lines: 6
-Methods: 0
-public static void main(String[] args) { is a method declaration
-public HelloWorld(){ is a method declaration
-public String printAnotherHello(){ is a method declaration
-File: Test.java
-Total Lines: 21
-Effective Lines: 11
-Methods: 3
-
-
-Test from Console 
-
-Project 1
-File: App.java
-Total Lines: 97
-Effective Lines: 73
-Methods: 3
-File: FileInput.java
-Total Lines: 82
-Effective Lines: 54
-Methods: 4
-File: StatisticCalculator.java
-Total Lines: 67
-Effective Lines: 32
-Methods: 4
-Project Summary:
+Project Summary: Project 1 - PSP0
 Total Lines: 246
 Effective Lines: 159
 
-Project 2
-File: App.java
-Total Lines: 49
+File Name: FileInput.java
+Effective Lines: 54
+Method Count: 4
+Method Names:
+public FileInput
+public boolean getFile
+public void readNumbersFromFile
+public LinkedList<Double> getValuesFromFile
+
+File Name: StatisticCalculator.java
+Effective Lines: 32
+Method Count: 4
+Method Names:
+public StatisticCalculator
+public void setInputData
+public double calculateMean
+public double calculateStdDev
+
+File Name: App.java
+Effective Lines: 73
+Method Count: 3
+Method Names:
+public static void main
+public void consoleInput
+public void fileInput
+
+ ------------- 
+Project Summary: Project 2 - PSP01
+Total Lines: 510
+Effective Lines: 312
+
+File Name: ConsoleOutput.java
 Effective Lines: 38
-Methods: 3
-File: ConsoleOutput.java
-Total Lines: 15
-Effective Lines: 9
-Methods: 1
-File: LOCCounter.java
-Total Lines: 170
-Effective Lines: 84
-Methods: 8
-File: ProgramLOCCounter.java
-Total Lines: 143
-Effective Lines: 80
-Methods: 10
-File: WebOutput.java
-Total Lines: 48
-Effective Lines: 40
-Methods: 2
-Project Summary:
-Total Lines: 425
-Effective Lines: 251
+Method Count: 1
+Method Names:
+public static void main
+
+File Name: WebOutput.java
+Effective Lines: 46
+Method Count: 2
+Method Names:
+public static void showMainWindow
+public static void showLOCCountResult
+
+File Name: LOCCounter.java
+Effective Lines: 95
+Method Count: 10
+Method Names:
+public LOCCounter
+protected boolean initializeFile
+public void countLines
+private void verifyMethod
+public int getTotalLines
+public int getEfffectiveLines
+public String getSourceFileName
+public int getMethodCount
+public String getMethodNamesSummary
+public ArrayList<String> getMethodNames
+
+File Name: ProgramLOCCounter.java
+Effective Lines: 89
+Method Count: 12
+Method Names:
+public ProgramLOCCounter
+public ProgramLOCCounter
+protected boolean initDirectory
+private FilenameFilter getJavaFileFilter
+public boolean accept
+public int getProjectTotalLines
+public int getProjectEffectiveLines
+public void sendToLOCCounter
+public void retrieveFiles
+public ArrayList<LOCCounter> getCountersList
+public String getWorkingDirectoryPath
+public String getProjectName
+
+File Name: App.java
+Effective Lines: 44
+Method Count: 3
+Method Names:
+public static void main
+protected void doGet
+protected void doPost
+
+ ------------- 
