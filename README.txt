@@ -9,7 +9,7 @@ C.C. 80852789
 Tarea 1: PSP01
 Programa de Conteo de Lineas de Codigo
 
-Para obtener este proyecto desde el repositorio GutHub, clone el proyecto con la siguiente URL:
+Para obtener este proyecto desde el repositorio GitHub, clone el proyecto con la siguiente URL:
 https://github.com/drenteria/psp01.git
 
 Usuario: drenteria
